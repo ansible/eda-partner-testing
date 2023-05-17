@@ -13,13 +13,15 @@ For more information about `tox`, visit their wiki at: [https://tox.wiki/en/late
 
 ## Required Tests for Certified/Validated EDA Content
 
-To be certified, collections containing EDA content must pass the following linters:
+To be certified or validated, collections containing EDA plugin content must pass the following linters:
 
 - `ruff` : [ruff docs](https://beta.ruff.rs/docs/)
 - `darglint` : [darglint on pypi](https://pypi.org/project/darglint/) 
 - `pylint` : [pylint docs](https://pylint.readthedocs.io/en/latest/)
 
 These linters are subject to change or have additional requirements added over time, at the suggestion of the Ansible Partner Engineering team and the Event-Driven Ansible team. 
+
+**Note:** For EDA rulebooks, `ansible-lint` will be run over rulebooks for structural enforcement. That is not covered in this templates. `ansible-lint` docs can be found at [Ansible Lint readthedocs](https://ansible-lint.readthedocs.io/)
 
 
 ## Included Templates
