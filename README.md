@@ -21,7 +21,7 @@ To be certified or validated, collections containing EDA plugin content must pas
 
 These linters are subject to change or have additional requirements added over time, at the suggestion of the Ansible Partner Engineering team and the Event-Driven Ansible team. 
 
-**Note:** For EDA rulebooks, `ansible-lint` will be run over rulebooks for structural enforcement. That is not covered in this templates. `ansible-lint` docs can be found at [Ansible Lint readthedocs](https://ansible-lint.readthedocs.io/)
+**Note:** For EDA rulebooks, `ansible-lint` will be run over rulebooks for structural enforcement. That is not covered in these templates. `ansible-lint` docs can be found at [Ansible Lint readthedocs](https://ansible-lint.readthedocs.io/)
 
 
 ## Included Templates
