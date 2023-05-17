@@ -26,18 +26,24 @@ These linters are subject to change or have additional requirements added over t
 
 ### `tox.ini`
 
-The `tox.ini` template is designed to run over the `<collection_root>/extensions/eda/plugins` directory and included content. 
+The `.github/workflows/tox.ini` `tox` template is designed to run over the `<collection_root>/extensions/eda/plugins` directory and included content. Place this template inside the `.github/workflows/` dir in the collection root. 
 
 **IMPORTANT NOTE:** If the collection does not have an `<collection_root>/extensions/eda/plugins/event_source` or `<collection_root>/extensions/eda/plugins/event_filter` dir, remove or comment out the corresponding `pylint` environment from the `tox.ini` file. This would be the `[testenv:pylint-event-source]` section or `[testenv:pylint-event-filter]` section in the `tox.ini` file. 
 
 ### Github Workflow for `tox`
 
-The included workflow at `.github/workflows/tox.yml` can be copied into a collection repo in the following structure:
+The included workflow at `.github/workflows/tox.yml` can be copied into the `.github/workflows` dir in the collection root. 
+
+
+## Collection structure
+
+This will result in a collection with the following structure:
 
     .                           # Collection root
     ├── .github
     │   ├── workflows
-    │   └── ├── tox.yml         # Insert tox template here
+    │   └── ├── tox.yml         # Insert tox.yml workflow template here
+    │       │   tox.ini         # Insert tox.ini template here          
     │       └── ...             # Additional workflows (if applicable)  
     ├── extensions              # Extensions dir
     │   ├── eda                 # EDA dir (contains all EDA content - `rulebooks/` and `plugins/`)
@@ -48,7 +54,6 @@ The included workflow at `.github/workflows/tox.yml` can be copied into a collec
     │           │   └── *.py
     │           └── event_source
     │               └── *.py
-    │           
     ├── meta
     │   ├── runtime.yml
     │   └── ...
@@ -56,8 +61,7 @@ The included workflow at `.github/workflows/tox.yml` can be copied into a collec
     │   └── ...
     ├── galaxy.yml
     ├── README.md
-    ├── CHANGELOG.rst           # or `.md`, and/or have a `changelogs/changelog.yml` file
-    ├── tox.ini                 # `tox.ini` MUST be in the collection root to work with the included workflow            
+    ├── CHANGELOG.rst           # or `.md`, and/or have a `changelogs/changelog.yml` file          
     └── ...                     # Other collection content (`plugins/`, `roles/`, etc.)
 
 ## Requirements
@@ -72,21 +76,12 @@ The linters used in the `tox.ini` file will be automatically installed when each
 
 ## Running `tox` Locally
 
-To run `tox` in your local dev environment with this template, you must run tox from the dir above your collection root. This is because of a `setuptools` error that will not allow tox to run in a "flat-hierarchy" environment. 
+To run `tox` in your local dev environment with this template after placing the `.github/workflows/tox.ini` template inside the collection's `.github/workflows` dir, take the following steps:
 
-Our recommendation is to keep a **copy** of the `tox.ini` file one dir above the collection root in your local environment, and when locally testing, run `tox` from the dir above your collection:
+    cd .github/workflows    # This `cd` is assuming pwd is the collection root
+    tox -- ../..            # To run tox over the collection root and its contents.
 
-    .                               # One dir above the collection
-    ├── tox.ini
-    ├── <collection_dir>            # Local collection dir
-    │   └── <collection_content> ...
-    └── ...
-
-To run tox with this template, first be **in** the directory above the collection, then run:
-
-    tox -- <collection_dir>
-
-The `--` flag tells `tox` to pass the next argument into the `tox.ini` file where `{posargs}` is specified. 
+The `--` flag tells `tox` to pass the next argument(s) into the `tox.ini` file where `{posargs}` is specified. 
 
 This is how the template will find the EDA plugin content inside your collection. Changing this or not adhering to this structure could cause `tox` to give a false clean result, which is why we recommend sticking to this structure. 
 
