@@ -99,6 +99,9 @@ The workflow should run automatically on new PRs and push actions.
 
 - Make sure that the `pylint` paths inside the file point directly to the `*.py` files inside `<root>/extensions/eda/plugins/event_source/*.py` and `<root>/extensions/eda/plugins/event_filters/*.py` paths, to avoid errors about missing `__init__.py` files. There is no need to add `__init__.py` files to the plugin dirs. 
 
+## Add to the `build_ignore` list
+
+Add the `.github/` directory to the `build_ignore` list in the collection's `galaxy.yml` file to prevent the dir from being included in the collection tarball. 
 
 ## Questions?
 
