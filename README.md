@@ -23,7 +23,6 @@ These linters are subject to change or have additional requirements added over t
 
 **Note:** For EDA rulebooks, `ansible-lint` will be run over rulebooks for structural enforcement. That is not covered in these templates. `ansible-lint` docs can be found at [Ansible Lint readthedocs](https://ansible-lint.readthedocs.io/)
 
-
 ## Included Templates
 
 ### `tox.ini`
@@ -35,7 +34,6 @@ The `.github/workflows/tox.ini` `tox` template is designed to run over the `<col
 ### Github Workflow for `tox`
 
 The included workflow at `.github/workflows/tox.yml` can be copied into the `.github/workflows` dir in the collection root. 
-
 
 ## Collection structure
 
@@ -87,7 +85,6 @@ The `--` flag tells `tox` to pass the next argument(s) into the `tox.ini` file w
 
 This is how the template will find the EDA plugin content inside your collection. Changing this or not adhering to this structure could cause `tox` to give a false clean result, which is why we recommend sticking to this structure. 
 
-
 ## Running `tox` in CI
 
 Place the `.github/workflows/tox.yml` file into the collection repository's `.github/workflows` dir. 
@@ -96,12 +93,11 @@ Make sure Github Actions is enabled on the repository.
 
 The workflow should run automatically on new PRs and push actions. 
 
-
 ## Common Errors
 
-If you receive a `setuptools` error, you will need to adjust the location of the tox file within the workflow job to be one directory above the collection, as specified above.
+- If you receive a `setuptools` error, you will need to adjust the location of the tox file within the workflow job to be inside the `github/workflows` dir, as shown above.
 
-Make sure that the `pylint` paths inside the file point directly to the `*.py` files inside `<root>/extensions/eda/plugins/event_source/*.py` and `<root>/extensions/eda/plugins/event_filters/*.py` paths, to avoid errors about missing `__init__.py` files. 
+- Make sure that the `pylint` paths inside the file point directly to the `*.py` files inside `<root>/extensions/eda/plugins/event_source/*.py` and `<root>/extensions/eda/plugins/event_filters/*.py` paths, to avoid errors about missing `__init__.py` files. There is no need to add `__init__.py` files to the plugin dirs. 
 
 
 ## Questions?
