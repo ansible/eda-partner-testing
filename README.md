@@ -33,7 +33,7 @@ The `.github/workflows/tox.ini` `tox` template is designed to run over the `<col
 
 ### Github Workflow for `tox`
 
-The included workflow at `.github/workflows/tox.yml` can be copied into the `.github/workflows` dir in the collection root. 
+The included workflow at `.github/workflows/tox.yml` can be copied into the `.github/workflows/` dir in the collection root. 
 
 ## Collection structure
 
@@ -46,7 +46,7 @@ This will result in a collection with the following structure:
     │       │   tox.ini         # Insert tox.ini template here          
     │       └── ...             # Additional workflows (if applicable)  
     ├── extensions              # Extensions dir
-    │   ├── eda                 # EDA dir (contains all EDA content - `rulebooks/` and `plugins/`)
+    │   └── eda                 # EDA dir (contains all EDA content - `rulebooks/` and `plugins/`)
     │       ├── rulebooks           
     │       │   └── *.yml...        
     │       └── plugins             
@@ -95,7 +95,7 @@ The workflow should run automatically on new PRs and push actions.
 
 ## Common Errors
 
-- If you receive a `setuptools` error, you will need to adjust the location of the tox file within the workflow job to be inside the `github/workflows` dir, as shown above.
+- If you receive a `setuptools` error, you will need to adjust the location of the tox file within the workflow job to be inside the `.github/workflows/` dir, as shown above.
 
 - Make sure that the `pylint` paths inside the file point directly to the `*.py` files inside `<root>/extensions/eda/plugins/event_source/*.py` and `<root>/extensions/eda/plugins/event_filters/*.py` paths, to avoid errors about missing `__init__.py` files. There is no need to add `__init__.py` files to the plugin dirs. 
 
