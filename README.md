@@ -87,7 +87,7 @@ This is how the template will find the EDA plugin content inside your collection
 
 ## Running `tox` in CI
 
-Place the `.github/workflows/tox.yml` file into the collection repository's `.github/workflows` dir. 
+Place both the `.github/workflows/tox.yml` and `.github/workflows/tox.ini` files into the collection repository's `.github/workflows` dir. 
 
 Make sure Github Actions is enabled on the repository. 
 
