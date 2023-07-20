@@ -16,4 +16,4 @@ jobs:
           sudo python3 -m pip install --upgrade virtualenv
           sudo python3 -m pip install --upgrade setuptools
       - name: Run tox environments
-        run: tox -e linters
+        run: tox
