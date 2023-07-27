@@ -39,7 +39,7 @@ docs can be found at [Ansible Lint readthedocs](https://ansible-lint.readthedocs
 
 ### `tox.ini`
 
-The `tox.ini` `tox` template is designed to run over the whole project's file structure. 
+The `tox.ini` `tox` template is designed to run over the whole project's file structure. This file can be copied into the collection root. 
 
 ### Github Workflow for `tox`
 
@@ -72,7 +72,6 @@ This will result in a collection with the following structure:
     ├── README.md
     ├── CHANGELOG.rst           # or `.md`, and/or have a `changelogs/changelog.yml` file
     │   tox.ini                 # Insert the tox.ini template here
-    │   test_requirements.txt   # Insert the test_requirements.txt testing dependencies here          
     └── ...                     # Other collection content (`plugins/`, `roles/`, etc.)
 
 ## Requirements
@@ -91,7 +90,7 @@ The linters used in the `tox.ini` file will be automatically installed when each
 To run `tox` in your local dev environment, run the following command from the project's root folder:
 
 ```
-tox -e linters  # To run the tox main environment that will run all the lint checks.
+tox  # To run the tox main environment that will run all the lint checks.
 ```
 
 ## Running `tox` in CI
@@ -99,9 +98,7 @@ tox -e linters  # To run the tox main environment that will run all the lint che
 Depending on the CI tooling the user has, the only main requirement is to have `tox` installed, as a
 reference check `.github/workflows/tox.yml`
 
-In the particular case of using Github actions, place the `.github/workflows/linters.yml`, `tox.ini`,
-and `test_requirements.txt` files into the collection repository's preserving the relative path
-to the collection. 
+In the particular case of using Github actions, place the `.github/workflows/linters.yml` and `tox.ini`,` files into the collection repository's preserving the relative path to the collection. 
 
 Make sure Github Actions is enabled on the repository. 
 
@@ -109,7 +106,7 @@ The workflow should run automatically on new PRs and push actions.
 
 ## Add to the `build_ignore` list
 
-Add the `.github/` directory to the `build_ignore` list in the collection's `galaxy.yml` file to prevent the dir from being included in the collection tarball. 
+Add the `.github/` directory and the `tox.ini` file to the `build_ignore` list in the collection's `galaxy.yml` file to prevent the dir from being included in the collection tarball. 
 
 ## Questions?
 
