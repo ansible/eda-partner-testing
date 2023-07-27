@@ -1,0 +1,21 @@
+---
+on: []
+name: Linters
+jobs:
+  linters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install jq libyaml-dev git build-essential findutils libsystemd-dev -y
+          sudo python3 -m pip install tox
+          sudo python3 -m pip install --upgrade --ignore-installed PyYAML
+          sudo python3 -m pip install --upgrade pip
+          sudo python3 -m pip install --upgrade virtualenv
+          sudo python3 -m pip install --upgrade setuptools
+      - name: Run tox
+        run: |
+          tox
+
