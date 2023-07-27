@@ -45,7 +45,7 @@ The `tox.ini` `tox` template is designed to run over the whole project's file st
 
 The included workflow at `.github/workflows/eda-test-template.yml` can be copied into the `.github/workflows/` dir in the collection root. 
 
-This template does not include when to activate this workflow. For information on triggering a workflow see the Github documentation [here](https://docs.github.com/en/actions/using-workflows/triggering-a-workflow)
+This template does not include when to activate this workflow. For information on triggering a workflow see the Github documentation [here](https://docs.github.com/en/actions/using-workflows/triggering-a-workflow).
 
 ## Collection structure
 
