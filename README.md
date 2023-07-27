@@ -43,7 +43,7 @@ The `tox.ini` `tox` template is designed to run over the whole project's file st
 
 ### Github Workflow for `tox`
 
-The included workflow at `.github/workflows/linters.yml` can be copied into the `.github/workflows/` dir in the collection root. 
+The included workflow at `.github/workflows/eda-test-template.yml` can be copied into the `.github/workflows/` dir in the collection root. 
 
 ## Collection structure
 
@@ -52,7 +52,7 @@ This will result in a collection with the following structure:
     .                           # Collection root
     ├── .github
     │   ├── workflows
-    │   └── ├── linters.yml     # Insert the linters.yml workflow template here
+    │   └── ├── eda-test-template.yml     # Insert the eda-test-template.yml workflow template here
     │       └── ...             # Additional workflows (if applicable)  
     ├── extensions              # Extensions dir
     │   └── eda                 # EDA dir (contains all EDA content - `rulebooks/` and `plugins/`)
@@ -77,7 +77,7 @@ This will result in a collection with the following structure:
 ## Requirements
 
 To use the `tox.ini` template in your dev environment, `tox` must be locally installed,
-please refer to the Github actions `linters.yml` workflow. 
+please refer to the Github actions `eda-test-template.yml` workflow. 
 
 To install `tox`, run:
 
@@ -98,7 +98,7 @@ tox  # To run the tox main environment that will run all the lint checks.
 Depending on the CI tooling the user has, the only main requirement is to have `tox` installed, as a
 reference check `.github/workflows/tox.yml`
 
-In the particular case of using Github actions, place the `.github/workflows/linters.yml` and `tox.ini`,` files into the collection repository's preserving the relative path to the collection. 
+In the particular case of using Github actions, place the `.github/workflows/eda-test-template.yml` and `tox.ini`,` files into the collection repository's preserving the relative path to the collection. 
 
 Make sure Github Actions is enabled on the repository. 
 
