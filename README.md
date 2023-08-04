@@ -98,7 +98,7 @@ tox  # To run the tox main environment that will run all the lint checks.
 ## Running `tox` in CI
 
 Depending on the CI tooling the user has, the only main requirement is to have `tox` installed, as a
-reference check `.github/workflows/tox.yml`
+reference check `.github/workflows/eda-test-template.yml`
 
 In the particular case of using Github actions, place the `.github/workflows/eda-test-template.yml` and `tox.ini`,` files into the collection repository's preserving the relative path to the collection. 
 
